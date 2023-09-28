@@ -1,0 +1,4 @@
+#Thu Sep 28 17:03:43 CST 2023
+base.0=D\:\\AndroidStudioProjects\\SystemUpdater\\build\\intermediates\\dex\\release\\mergeDexRelease\\out\\classes.dex
+renamed.0=classes.dex
+path.0=classes.dex

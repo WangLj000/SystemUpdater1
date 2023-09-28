@@ -1,0 +1,118 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<!--
+3  Copyright (C) 2015 The Android Open Source Project
+4
+5  Licensed under the Apache License, Version 2.0 (the "License");
+6  you may not use this file except in compliance with the License.
+7  You may obtain a copy of the License at
+8
+9    http://www.apache.org/licenses/LICENSE-2.0
+10
+11  Unless required by applicable law or agreed to in writing, software
+12  distributed under the License is distributed on an "AS IS" BASIS,
+13  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+14  See the License for the specific language governing permissions and
+15  limitations under the License.
+16-->
+17<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+18    package="com.android.car.systemupdater"
+19    android:versionCode="31"
+20    android:versionName="11" >
+21
+22    <uses-sdk
+23        android:minSdkVersion="29"
+23-->D:\AndroidStudioProjects\SystemUpdater\AndroidManifest.xml
+24        android:targetSdkVersion="32" />
+24-->D:\AndroidStudioProjects\SystemUpdater\AndroidManifest.xml
+25
+26    <uses-permission android:name="android.permission.WRITE_MEDIA_STORAGE" />
+26-->D:\AndroidStudioProjects\SystemUpdater\AndroidManifest.xml:22:5-78
+26-->D:\AndroidStudioProjects\SystemUpdater\AndroidManifest.xml:22:22-75
+27    <uses-permission android:name="android.permission.MANAGE_EXTERNAL_STORAGE" />
+27-->D:\AndroidStudioProjects\SystemUpdater\AndroidManifest.xml:23:5-82
+27-->D:\AndroidStudioProjects\SystemUpdater\AndroidManifest.xml:23:22-79
+28    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+28-->D:\AndroidStudioProjects\SystemUpdater\AndroidManifest.xml:24:5-81
+28-->D:\AndroidStudioProjects\SystemUpdater\AndroidManifest.xml:24:22-78
+29    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+29-->D:\AndroidStudioProjects\SystemUpdater\AndroidManifest.xml:25:5-80
+29-->D:\AndroidStudioProjects\SystemUpdater\AndroidManifest.xml:25:22-77
+30    <uses-permission android:name="android.permission.REBOOT" />
+30-->D:\AndroidStudioProjects\SystemUpdater\AndroidManifest.xml:26:5-65
+30-->D:\AndroidStudioProjects\SystemUpdater\AndroidManifest.xml:26:22-62
+31
+32    <uses-feature android:name="android.hardware.usb.host" />
+32-->D:\AndroidStudioProjects\SystemUpdater\AndroidManifest.xml:27:5-62
+32-->D:\AndroidStudioProjects\SystemUpdater\AndroidManifest.xml:27:19-59
+33
+34    <application
+34-->D:\AndroidStudioProjects\SystemUpdater\AndroidManifest.xml:29:5-57:19
+35        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+35-->[androidx.core:core:1.3.1] C:\Users\RB\.gradle\caches\transforms-2\files-2.1\634d5252229c8e6a6f3cc7194923dd3a\core-1.3.1\AndroidManifest.xml:24:18-86
+36        android:debuggable="true"
+37        android:label="@string/title"
+37-->D:\AndroidStudioProjects\SystemUpdater\AndroidManifest.xml:30:13-42
+38        android:theme="@style/SystemUpdaterTheme" >
+38-->D:\AndroidStudioProjects\SystemUpdater\AndroidManifest.xml:31:13-54
+39        <activity
+39-->D:\AndroidStudioProjects\SystemUpdater\AndroidManifest.xml:32:9-56:20
+40            android:name="com.android.car.systemupdater.SystemUpdaterActivity"
+40-->D:\AndroidStudioProjects\SystemUpdater\AndroidManifest.xml:33:13-79
+41            android:exported="true"
+41-->D:\AndroidStudioProjects\SystemUpdater\AndroidManifest.xml:34:13-36
+42            android:label="@string/title" >
+42-->D:\AndroidStudioProjects\SystemUpdater\AndroidManifest.xml:35:13-42
+43            <intent-filter>
+43-->D:\AndroidStudioProjects\SystemUpdater\AndroidManifest.xml:36:13-38:29
+44                <action android:name="android.intent.action.MAIN" />
+44-->D:\AndroidStudioProjects\SystemUpdater\AndroidManifest.xml:37:17-69
+44-->D:\AndroidStudioProjects\SystemUpdater\AndroidManifest.xml:37:25-66
+45            </intent-filter>
+46            <intent-filter>
+46-->D:\AndroidStudioProjects\SystemUpdater\AndroidManifest.xml:39:13-41:29
+47                <action android:name="android.hardware.usb.action.USB_DEVICE_ATTACHED" />
+47-->D:\AndroidStudioProjects\SystemUpdater\AndroidManifest.xml:40:17-90
+47-->D:\AndroidStudioProjects\SystemUpdater\AndroidManifest.xml:40:25-87
+48            </intent-filter>
+49            <intent-filter>
+49-->D:\AndroidStudioProjects\SystemUpdater\AndroidManifest.xml:42:13-47:29
+50
+51                <!-- <action android:name="com.android.settings.action.EXTRA_SETTINGS" /> -->
+52                <!-- <category android:name="android.intent.category.DEFAULT" /> -->
+53                <action android:name="android.intent.action.MAIN" />
+53-->D:\AndroidStudioProjects\SystemUpdater\AndroidManifest.xml:37:17-69
+53-->D:\AndroidStudioProjects\SystemUpdater\AndroidManifest.xml:37:25-66
+54
+55                <category android:name="android.intent.category.LAUNCHER" />
+55-->D:\AndroidStudioProjects\SystemUpdater\AndroidManifest.xml:46:17-77
+55-->D:\AndroidStudioProjects\SystemUpdater\AndroidManifest.xml:46:27-74
+56            </intent-filter>
+57
+58            <meta-data
+58-->D:\AndroidStudioProjects\SystemUpdater\AndroidManifest.xml:48:13-49:59
+59                android:name="com.android.settings.title"
+59-->D:\AndroidStudioProjects\SystemUpdater\AndroidManifest.xml:48:24-65
+60                android:resource="@string/title" />
+60-->D:\AndroidStudioProjects\SystemUpdater\AndroidManifest.xml:49:24-56
+61            <meta-data
+61-->D:\AndroidStudioProjects\SystemUpdater\AndroidManifest.xml:50:13-51:87
+62                android:name="com.android.settings.icon"
+62-->D:\AndroidStudioProjects\SystemUpdater\AndroidManifest.xml:50:24-64
+63                android:resource="@drawable/ic_system_update_alt_black_48dp" />
+63-->D:\AndroidStudioProjects\SystemUpdater\AndroidManifest.xml:51:24-84
+64            <meta-data
+64-->D:\AndroidStudioProjects\SystemUpdater\AndroidManifest.xml:52:13-53:47
+65                android:name="com.android.settings.icon_tintable"
+65-->D:\AndroidStudioProjects\SystemUpdater\AndroidManifest.xml:52:24-73
+66                android:value="true" />
+66-->D:\AndroidStudioProjects\SystemUpdater\AndroidManifest.xml:53:24-44
+67            <meta-data
+67-->D:\AndroidStudioProjects\SystemUpdater\AndroidManifest.xml:54:13-55:82
+68                android:name="com.android.settings.category"
+68-->D:\AndroidStudioProjects\SystemUpdater\AndroidManifest.xml:54:24-68
+69                android:value="com.android.settings.category.ia.system" />
+69-->D:\AndroidStudioProjects\SystemUpdater\AndroidManifest.xml:55:24-79
+70        </activity>
+71    </application>
+72
+73</manifest>
