@@ -82,7 +82,7 @@ public class FileChooseUtil {
                 if ("primary".equalsIgnoreCase(type)) {
                     return Environment.getExternalStorageDirectory() + "/" + split[1];
                 }else {
-                    return "/mnt/media_rw"+ "/" + split[0] + "/" + split[1];
+                    return "/storage"+ "/" + split[0] + "/" + split[1];
                 }
             }
             // DownloadsProvider
