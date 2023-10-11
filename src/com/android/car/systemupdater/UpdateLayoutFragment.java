@@ -165,6 +165,15 @@ public class UpdateLayoutFragment extends Fragment implements UpFragment {
         }
     }
 
+    private void showStatus(@StringRes int status,int errorCode) {
+        mContentTitle.setText(getText(status)+" ErrorCode: " + errorCode);
+        if (mInstallationInProgress) {
+            mNotificationManager.notify(NOTIFICATION_ID, createNotification(getContext(), status));
+        } else {
+            mNotificationManager.cancel(NOTIFICATION_ID);
+        }
+    }
+
     /** Show the install now button. */
     private void showInstallNow(UpdateParser.ParsedUpdate update) {
 //        mContentTitle.setText(R.string.install_ready);
@@ -283,7 +292,7 @@ public class UpdateLayoutFragment extends Fragment implements UpFragment {
             mInstallationInProgress = false;
             showStatus(errorCode == UpdateEngine.ErrorCodeConstants.SUCCESS
                     ? R.string.install_success
-                    : R.string.install_failed+errorCode);
+                    : R.string.install_failed,errorCode);
             mProgressBar.setVisibility(View.GONE);
 //            mToolbar.setMenuItems(null); // Remove install now button
         }
