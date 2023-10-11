@@ -23,6 +23,7 @@ import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.os.AsyncTask;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.PowerManager;
@@ -190,8 +191,21 @@ public class UpdateLayoutFragment extends Fragment implements UpFragment {
     /** Attempt to install the update that is copied to the device. */
     private void installUpdate(UpdateParser.ParsedUpdate parsedUpdate) {
         showInstallationInProgress();
-        mUpdateEngine.applyPayload(
-                parsedUpdate.mUrl, parsedUpdate.mOffset, parsedUpdate.mSize, parsedUpdate.mProps);
+        String convertPath = null;
+        if (Build.VERSION.SDK_INT >= 30) { // Build.VERSION_CODES.R
+            Log.d(TAG, "installPackage SDK version >= Build.VERSION_CODES.R,should convert update file path.");
+            if (parsedUpdate.mUrl.startsWith("file:///storage/emulated/0")) {
+                convertPath = parsedUpdate.mUrl.replace("/storage/emulated/0", "/data/media/0");
+            } else if (parsedUpdate.mUrl.startsWith("file:///storage")) {
+                convertPath = parsedUpdate.mUrl.replace("/storage", "/mnt/media_rw");
+            }
+            Log.d(TAG, "installPackage update " + parsedUpdate.mUrl + " to " + convertPath);
+            mUpdateEngine.applyPayload(
+                    convertPath, parsedUpdate.mOffset, parsedUpdate.mSize, parsedUpdate.mProps);
+        }else {
+            mUpdateEngine.applyPayload(
+                    parsedUpdate.mUrl, parsedUpdate.mOffset, parsedUpdate.mSize, parsedUpdate.mProps);
+        }
     }
 
     /** Set the layout to show installation progress. */
@@ -269,7 +283,7 @@ public class UpdateLayoutFragment extends Fragment implements UpFragment {
             mInstallationInProgress = false;
             showStatus(errorCode == UpdateEngine.ErrorCodeConstants.SUCCESS
                     ? R.string.install_success
-                    : R.string.install_failed);
+                    : R.string.install_failed+errorCode);
             mProgressBar.setVisibility(View.GONE);
 //            mToolbar.setMenuItems(null); // Remove install now button
         }

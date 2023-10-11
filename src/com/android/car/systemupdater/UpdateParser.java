@@ -16,9 +16,11 @@
 
 package com.android.car.systemupdater;
 
-import android.annotation.NonNull;
-import android.annotation.Nullable;
+
 import android.util.Log;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 
 import com.android.internal.util.Preconditions;
 

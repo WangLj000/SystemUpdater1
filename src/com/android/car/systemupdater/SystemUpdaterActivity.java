@@ -128,7 +128,7 @@ public class SystemUpdaterActivity extends AppCompatActivity
 
     private void intoFileManager() {
         Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
-        intent.setType("*/*");//无类型限制
+        intent.setType("application/zip");//zip类型限制
 //        有类型限制是这样的:
 //        intent.setType(“image/*”);//选择图片
 //        intent.setType(“audio/*”); //选择音频
